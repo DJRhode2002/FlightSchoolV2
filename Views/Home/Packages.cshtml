@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FlightSchoolV2.Models.TrainingPackage>
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Our Training Packages</h1>
+        <p class="lead">Choose the path that fits your aviation goals.</p>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title text-primary">@item.Title</h3>
+                        <p class="card-text text-muted">@item.Description</p>
+                        <h4 class="mt-auto text-dark">R @item.Price.ToString("N2")</h4>
+                        <a asp-controller="Registration" asp-action="Index"
+                           asp-route-packageId="@item.Id"
+                           class="btn btn-outline-primary mt-3">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

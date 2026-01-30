@@ -1,0 +1,61 @@
+﻿@model FlightSchoolV2.Models.Student
+
+@{
+    ViewData["Title"] = "Student Registration";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4>Student Registration Form</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Register" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Personal Details</h5>
+                        <div class="mb-3">
+                            <label class="form-label">First Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Enter Name" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Surname</label>
+                            <input asp-for="Surname" class="form-control" placeholder="Enter Surname" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date of Birth</label>
+                            <input asp-for="DOB" type="date" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="email@example.com" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5>Identity & Medical</h5>
+                        <div class="mb-3">
+                            <label class="form-label">ID / Passport / Visa Number</label>
+                            <input asp-for="IdPassportVisaNumber" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Upload Medical Form</label>
+                            <input type="file" name="medicalFile" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Medical Expiry Date</label>
+                            <input type="date" name="medicalExpiry" class="form-control" />
+                        </div>
+                            <div class="mb-3">
+                                <label class="form-label">Selected Course</label>
+                                <input type="text" name="SelectedPackage" value="@ViewBag.SelectedPackage" class="form-control" readonly />
+                            </div>
+                        </div>
+                    </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">Submit Registration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
